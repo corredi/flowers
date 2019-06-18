@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">
+            org.h2.Driver
+        </property>
+        <property name="connection.url">
+            jdbc:h2:~/flowers;
+        </property>
+        <property name="hibernate.default_schema">PUBLIC</property>
+        <property name="connection.username">test</property>
+        <property name="connection.password">test</property>
+        <property name="connection.pool_size">10</property>
+        <property name="dialect">
+            org.hibernate.dialect.H2Dialect
+        </property>
+        <!--
+        <property name="current_session_context_class">thread</property>
+
+        <property name="cache.provider_class">
+            org.hibernate.cache.internal.NoCacheProvider
+        </property>
+        -->
+        <!--
+        <mapping resource="Flower.hbr.xml"/>
+        -->
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>
+        <mapping resource="User.hbr.xml"/>
+        <mapping resource="Customer.hbr.xml"/>
+        <mapping resource="Admin.hbr.xml"/>
+
+        <mapping class="com.accenture.flowershop.be.entity.flower.Flower"/>
+        <mapping class="com.accenture.flowershop.be.entity.user.User"/>
+        <mapping class="com.accenture.flowershop.be.entity.order.Order"/>
+        <mapping class="com.accenture.flowershop.be.entity.order.OrderInfo"/>
+    </session-factory>
+</hibernate-configuration>
